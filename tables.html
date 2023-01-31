@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tables and Forms</title>
+    </head>
+    <body>
+        <h1>Tables and Forms</h1>
+        <table border="1" width="100%">
+            <tr>
+                <th>0830-1000</th>
+                <th>1000-1130</th>
+                <th>1130-1300</th>
+            </tr>
+            <tr>
+                <td rowspan="3">Subject 1</td>
+                <td colspan="2">Subject 2</td>
+            </tr>
+            <tr>
+                <td>Subject 1</td>
+                <td>Subject 3</td>
+            </tr>
+            <tr>
+                <td>Subject 1</td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                Content of new table
+                            </td>
+                            <td>
+                                Content of new table
+                            </td>
+                            <td>
+                                Content of new table
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content of new table
+                            </td>
+                            <td>
+                                Content of new table
+                            </td>
+                            <td>
+                                Content of new table
+                            </td>
+                        </tr>                        
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <form action="some-end-point.php" method="get">
+            <fieldset>
+                <legend>Profile Information</legend>
+                <p>
+                <label for="firstName">First Name:</label>
+                <input type="text" placeholder="Enter First Name" name="firstName" required />
+                </p>
+                
+                <p>
+                <label for="lastName">Last Name:</label>
+                <input type="text" placeholder="Enter Last Name" name="lastName" />
+                </p>
+
+                <p>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Enter Your Email" name="email" />
+                </p>
+
+                <p>
+                    <select name="country">
+                        <option value="+92">Pakistan</option>
+                        <option value="+91">India</option>
+                        <option value="+1">USA</option>
+                        <option value="+44">UK</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="Male" />Male
+                    <input type="radio" name="gender" value="Female" />Female
+                </p>
+                <p>
+                    <input type="search" />
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Education</legend>
+                <label>Matric/O Levels</label>
+                <select name="education">
+                    <optgroup label="Matriculation">
+                        <option>Matric</option>
+                        <option>O Levels</option>
+                        <option>Diploma</option>
+                    </optgroup>
+                    <optgroup label="Intermediate">
+                        <option>FSc</option>
+                        <option>A Levels</option>
+                        <option>FA</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+
+            <input type="text" list="countries" name="" />
+
+            <datalist id="countries">
+                <option>Pakistan</option>
+                <option>Portugal</option>
+                <option>France</option>
+                <option>Finland</option>
+                <option>Germany</option>
+            </datalist>
+
+            <input type="submit" />
+        </form>
+    </body>
+
+</html>
