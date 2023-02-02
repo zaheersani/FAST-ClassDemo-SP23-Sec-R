@@ -1,0 +1,21 @@
+h1 {
+    font-size: 25px;
+}
+body {
+    margin: 0px;
+}
+table, td {
+    border: 1px solid #0FF;
+}
+.innertable {
+    border: 5px dashed navy;
+}
+.it-td {
+    border: 5px solid green;
+}
+td {
+    padding: 5px 10px 10px 20px;
+}
+th {
+    background-color: gray;
+}
