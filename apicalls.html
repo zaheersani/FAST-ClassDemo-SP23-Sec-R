@@ -27,8 +27,8 @@
             <!-- <button type="button" class="btn btn-primary" id="btn-loaditems">Load Data</button> -->
             <div class="container">
                 <ul class="list-group" id="todoslist">
-                    <li class="list-group-item">Item 1</li>
-                    <li class="list-group-item">Item 2</li>
+                    <li class="list-group-item">TODO 1</li>
+                    <li class="list-group-item">TODO 2</li>
                 </ul>
             </div>
         </div>
@@ -57,8 +57,21 @@
                     });
                     // Adding click event after rendering the elements
                     $('.list-group-item').on('click', function(e) {
-                        debugger;
-                        console.log('clicked')
+                        // clear todos
+                        $('#todoslist').html('');
+                        
+                        // Get user id
+                        var userid = e.target.id;
+
+                        // Filter and Append DOM
+                        todos
+                        .filter(u => u.userId == userid)
+                        .forEach(element => {
+                            $('#todoslist').append(`${element.id}<li class="list-group-item" id="${element.id}">${element.title}</li>`);
+                        });
+
+                        // Display TODOs
+                        $('#todos').css('display','block')
                     })
                 })
                 
