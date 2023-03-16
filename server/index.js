@@ -8,7 +8,7 @@ const users = require('./users.json')
 // /
 // GET, POST, PUT, PATCH, DELETE
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     if (req.url == '/' && req.method == 'GET') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
@@ -26,7 +26,31 @@ const server = http.createServer((req, res) => {
         let user = users.find(u => u.id == id)
         if (user) res.end(JSON.stringify(user));
         else res.end(`user with id ${id} not found!`);
-    } else {
+    } else if (req.url == '/users' && req.method == 'POST') {
+        const getData = () => new Promise((resolve, reject) => {
+            try {
+                let body = "";
+                // listen to data sent by client
+                req.on("data", (chunk) => {
+                    // append the string version to the body
+                    body += chunk.toString();
+                });
+                // listen till the end
+                req.on("end", () => {
+                    // send back the data
+                    resolve(body);
+                });
+            } catch (error) {
+                reject(error);
+            }
+        });
+
+        let userObj = await getData();
+        console.log(JSON.parse(userObj))
+        res.writeHead(201, { 'Content-Type': 'application/json'})
+        res.end(userObj)
+    }
+    else {
         res.end(`Request ${req.url} with ${req.method} method does not exist!`)
     }
 });
