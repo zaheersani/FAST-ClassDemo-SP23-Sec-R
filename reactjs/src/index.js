@@ -6,11 +6,14 @@ import reportWebVitals from './reportWebVitals';
 
 import Counter from "./Counter";
 
+import UsersList from "./APICall";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <Counter init={0} />
+    {/* <Counter init={0} /> */}
+    <UsersList />
     {/* <Counter init={50} /> */}
   </React.StrictMode>
 );
