@@ -8,12 +8,16 @@ import Counter from "./Counter";
 
 import UsersList from "./APICall";
 
+import {BrowserRouter} from 'react-router-dom'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
     {/* <Counter init={0} /> */}
-    <UsersList />
+    {/* <UsersList /> */}
     {/* <Counter init={50} /> */}
   </React.StrictMode>
 );
